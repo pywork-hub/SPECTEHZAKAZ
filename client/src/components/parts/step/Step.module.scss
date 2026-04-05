@@ -1,0 +1,25 @@
+.step {
+	@apply py-7 px-8 w-max flex-grow text-center basis-1/5;
+	border-radius: 10px;
+	box-shadow: 0px 0px 20px 0px rgba(0, 62, 112, 0.1);
+	color: #252525;
+
+	@media (max-width: 1000px) {
+		@apply w-full;
+	}
+}
+.icon {
+	@apply mx-auto mb-3.5 w-16 h-16 flex items-center justify-center rounded-full;
+	background-color: #f2f7fc;
+
+	> svg {
+		@apply w-7 h-7;
+		stroke: #ffa202;
+	}
+}
+.heading {
+	@apply font-semibold mb-2;
+}
+.description {
+	@apply text-md leading-md;
+}

@@ -1,0 +1,81 @@
+.form {
+	@apply pt-5 flex flex-col gap-5;
+
+	@media (max-width: 520px) {
+		font-size: 14px;
+	}
+}
+.row {
+	@apply flex flex-wrap gap-5;
+	@media (max-width: 1050px) {
+		@apply gap-2;
+	}
+}
+.google,
+.input {
+	@apply h-12;
+}
+.attribute,
+.google,
+.input,
+.textarea {
+	@apply border;
+	border-color: #c3c3c3;
+	border-radius: 5px;
+}
+.google,
+.input,
+.textarea {
+	@apply px-4;
+}
+.images {
+	@apply w-full flex flex-wrap gap-2.5;
+}
+.image {
+	@apply w-full;
+	max-width: calc(100% / 4 - 8px);
+	height: 250px;
+	border-radius: 10px;
+}
+.textarea {
+	@apply resize-y py-2.5;
+	min-height: 150px;
+}
+.submit {
+	@apply h-11 mt-5 flex items-center justify-center font-medium mx-auto btn-orange;
+	min-width: 240px;
+	border-radius: 5px;
+
+	@media (max-width: 450px) {
+		@apply mt-0;
+	}
+}
+.loader {
+	@apply w-5 h-5 border-2;
+	border-color: #282832;
+	border-left-color: #fff;
+}
+.attribute {
+	@apply flex;
+}
+.drag {
+	@apply border;
+	border-color: #c3c3c3;
+	border-radius: 5px;
+}
+.files {
+	@apply flex gap-5 flex-wrap mt-5;
+}
+.file {
+	@apply flex-grow;
+	max-width: calc(100% / 3 - 14px);
+	min-width: 200px;
+	height: 250px;
+	@media (max-width: 800px) {
+		max-width: none;
+	}
+
+	> img {
+		border-radius: 10px;
+	}
+}

@@ -1,0 +1,15 @@
+schema: 'https://server.domain.com/api/mygraphql'
+# schema: 'http://localhost:4200/api/mygraphql'
+documents:
+  - 'src/schemas/mutations/**/*.graphql'
+  - 'src/schemas/queries/**/*.graphql'
+  - 'src/schemas/subscriptions/**/*.graphql'
+generates:
+  ./src/__generated__/output.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      skipTypename: true
+      reactApolloVersion: 3

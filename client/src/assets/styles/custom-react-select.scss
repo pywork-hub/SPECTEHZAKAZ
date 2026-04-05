@@ -1,0 +1,13 @@
+.react-select__placeholder {
+	@apply grid items-center text-5sm;
+	grid-template-columns: 1fr auto 1fr;
+
+	> svg {
+		@apply w-6 h-6;
+		stroke: #ffa202;
+	}
+}
+.react-select__value-container {
+	padding-left: 14px !important;
+	padding-right: 14px !important;
+}

@@ -1,0 +1,18 @@
+.field {
+	@apply flex-grow;
+	@media (max-width: 600px) {
+		@apply w-full;
+	}
+}
+.label {
+	@apply inline-block mb-1;
+}
+.error {
+	@apply block text-4sm mb-2.5 leading-none;
+	color: red;
+}
+.input,
+.textarea {
+	@apply w-full;
+	border-radius: inherit;
+}

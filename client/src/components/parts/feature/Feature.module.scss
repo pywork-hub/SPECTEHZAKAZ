@@ -1,0 +1,74 @@
+.feature {
+	@apply w-full flex justify-between gap-6 flex-grow;
+	flex-basis: calc(50% - 2.5rem);
+	padding: 30px 30px 35px 65px;
+	border-radius: 20px;
+	@media (max-width: 520px) {
+		@apply flex-col gap-3;
+		padding: 25px 30px 27px 30px;
+	}
+
+	&.gray {
+		@apply gray-gradient text-white;
+
+		.button {
+			background-color: #343e4a;
+
+			&:hover {
+				background-color: #46515f;
+			}
+		}
+	}
+
+	&.orange {
+		@apply orange-gradient;
+		color: #252525;
+
+		.button {
+			background-color: #e99300;
+
+			&:hover {
+				background-color: #f39a00;
+			}
+		}
+	}
+}
+.heading {
+	@apply mb-5 text-2lg font-semibold;
+
+	@media (max-width: 520px) {
+		@apply mb-3.5;
+		font-size: 17px;
+	}
+}
+.description {
+	@apply leading-md;
+
+	@media (max-width: 520px) {
+		@apply leading-lg;
+		font-size: 14px;
+	}
+}
+.right {
+	@apply pt-2 flex flex-col items-center justify-between;
+	@media (max-width: 480px) {
+		@apply flex-row justify-start;
+		> img {
+			display: none;
+		}
+	}
+}
+.button {
+	@apply px-3 text-md text-white font-semibold flex items-center justify-center transition-colors;
+	min-width: 165px;
+	height: 40px;
+	border-radius: 5px;
+}
+.form {
+	@apply py-8 px-10;
+	max-width: 1800px;
+
+	@media (max-width: 520px) {
+		@apply py-5 px-5;
+	}
+}

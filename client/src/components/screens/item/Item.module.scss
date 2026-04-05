@@ -1,0 +1,83 @@
+.section {
+	@apply py-14;
+
+	@media (max-width: 1300px) {
+		@apply pb-0;
+	}
+}
+.wrapper {
+	@apply grid gap-6;
+	grid-template-columns: auto 440px;
+	color: #565656;
+	@media (max-width: 1300px) {
+		@apply flex flex-col;
+	}
+}
+.heading {
+	@apply text-lg font-semibold mb-3.5;
+}
+.top {
+	@apply mb-3.5;
+
+	.heading {
+		@apply mb-1;
+	}
+}
+.geo {
+	@apply text-2md leading-lg;
+}
+.head {
+	@apply flex gap-3 mb-4;
+	@media (max-width: 1300px) {
+		@apply mt-6 mb-0;
+		order: 4;
+	}
+	@media (max-width: 450px) {
+		@apply flex-wrap;
+	}
+}
+.number,
+.link {
+	@apply h-11 flex-grow text-md flex items-center justify-center;
+	border-radius: 5px;
+}
+.number {
+	@apply min-w-fit border font-medium px-7;
+	border-color: rgba(48, 58, 71, 0.15);
+
+	@media (max-width: 1300px) {
+		@apply hidden;
+	}
+}
+.link {
+	@apply w-full font-semibold btn-orange;
+}
+.map {
+	height: 300px;
+
+	> iframe {
+		border-radius: 20px;
+	}
+}
+.sidebar {
+	@media (max-width: 1300px) {
+		@apply flex flex-col;
+	}
+}
+.location {
+	@media (max-width: 1300px) {
+		order: 2;
+	}
+}
+.sidebarReviews {
+	@apply hidden;
+}
+@media(max-width: 1300px) {
+	.sidebarReviews {
+		@apply block;
+		order: 3;
+	}
+	.contentReviews {
+		@apply hidden;
+	}
+}

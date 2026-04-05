@@ -1,0 +1,121 @@
+.section {
+	@apply pt-10 mb-10;
+}
+.wrapper {
+	@apply relative flex flex-col items-start justify-between text-white;
+	min-height: 515px;
+	padding: 90px 65px 55px;
+	border-radius: 50px;
+	background: rgb(45, 55, 67);
+	background: -moz-linear-gradient(
+		90deg,
+		rgba(45, 55, 67, 1) 0%,
+		rgba(86, 97, 111, 1) 52%,
+		rgba(144, 155, 169, 1) 100%
+	);
+	background: -webkit-linear-gradient(
+		90deg,
+		rgba(45, 55, 67, 1) 0%,
+		rgba(86, 97, 111, 1) 52%,
+		rgba(144, 155, 169, 1) 100%
+	);
+	background: linear-gradient(
+		90deg,
+		rgba(45, 55, 67, 1) 0%,
+		rgba(86, 97, 111, 1) 52%,
+		rgba(144, 155, 169, 1) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2d3743",endColorstr="#909ba9",GradientType=1);
+
+	@media (max-width: 580px) {
+		min-height: auto;
+		height: 480px;
+		padding: 30px 35px 33px;
+		border-radius: 15px;
+	}
+
+	@media(max-width: 400px) {
+		height: 460px;
+	}
+}
+
+.box {
+	z-index: 1;
+
+	@media (max-width: 580px) {
+		@apply w-full;
+	}
+}
+.title {
+	max-width: 580px;
+
+	@media (max-width: 580px) {
+		@apply max-w-full;
+	}
+}
+.heading {
+	@apply uppercase text-xl font-alumni font-semibold mb-5;
+	letter-spacing: 5%;
+	line-height: 0.8;
+
+	@media (max-width: 580px) {
+		@apply leading-none mb-3.5;
+		font-size: 42px;
+	}
+}
+.description {
+	@apply text-lg font-medium leading-lg opacity-50 mb-5;
+	max-width: 340px;
+
+	@media (max-width: 580px) {
+		font-size: 15px;
+	}
+}
+.button {
+	@apply w-full flex items-center justify-center gap-3 py-3 px-5 btn-orange font-medium;
+	max-width: 350px;
+	font-size: 17px;
+	border-radius: 5px;
+
+	> svg {
+		@apply w-6 h-6 stroke-white;
+	}
+
+	@media (max-width: 580px) {
+		@apply max-w-full;
+		font-size: 15px;
+
+		> svg {
+			@apply w-5 h-5;
+		}
+	}
+}
+.preview {
+	@apply absolute;
+	top: -25px;
+	bottom: -25px;
+	right: -70px;
+
+	> img {
+		@apply h-full object-contain;
+		object-position: center 80%;
+	}
+
+	@media (max-width: 1600px) {
+		right: -20px;
+	}
+
+	@media (max-width: 1000px) {
+		bottom: -60px;
+		right: -5px;
+	}
+
+	@media(max-width: 580px) {
+		bottom: -80px;
+    right: -1px;
+	}
+
+	@media(max-width: 400px) {
+		bottom: -87px;
+	}
+}

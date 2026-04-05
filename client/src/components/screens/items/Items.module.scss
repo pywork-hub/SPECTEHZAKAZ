@@ -1,0 +1,47 @@
+.section {
+	@apply pt-14 overflow-hidden;
+
+	@media (max-width: 520px) {
+		@apply pt-10;
+	}
+}
+.heading {
+	@apply text-2lg font-semibold mb-4;
+	color: #252525;
+
+	@media (max-width: 520px) {
+		font-size: 17px;
+	}
+}
+.box {
+	@apply flex items-center justify-center;
+	min-height: 450px;
+}
+.loader {
+	@apply w-12 h-12;
+	border-width: 5px;
+	border-color: #282832;
+	border-left-color: #ffa202;
+}
+.empty {
+	@apply text-lg;
+}
+.item {
+	& + .item {
+		@apply mt-5;
+	}
+}
+.pagination {
+	@apply mt-10;
+
+	@media (max-width: 520px) {
+		@apply mt-8;
+	}
+}
+.seo {
+	@apply mt-20;
+
+	@media (max-width: 520px) {
+		@apply mt-10;
+	}
+}

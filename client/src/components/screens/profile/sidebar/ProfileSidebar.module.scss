@@ -1,0 +1,95 @@
+.sidebar {
+	@apply flex flex-col sticky p-6 text-5sm bg-white z-1;
+	min-width: 300px;
+	max-width: 300px;
+	top: 110px;
+	border-radius: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	color: #171717;
+	@media (max-width: 800px) {
+		@apply relative gap-3 top-0 text-center;
+		max-width: none;
+		width: 100%;
+
+		> * {
+			@apply flex-grow;
+		}
+	}
+	@media (max-width: 650px) {
+		@apply flex-col;
+		min-width: auto;
+	}
+}
+.avatar {
+	@apply relative w-full h-full mb-6;
+	padding-top: 100%;
+	@media (max-width: 800px) {
+		@apply mx-auto mb-0;
+		min-width: 150px;
+		max-width: 150px;
+		min-height: 150px;
+		max-height: 150px;
+		padding-top: 0;
+	}
+
+	> img {
+		@apply image-like-bg-cover absolute top-0 bottom-0 left-0 right-0;
+		border-radius: 10px;
+		@media (max-width: 800px) {
+			@apply w-full h-auto;
+		}
+		@media (max-width: 650px) {
+			@apply relative;
+			max-width: 300px;
+		}
+	}
+}
+.name {
+	@apply text-lg font-semibold mb-2 text-ellipsis;
+}
+.options {
+	@apply mb-4;
+}
+.option {
+	> span {
+		@apply font-bold;
+		color: #ffa202;
+	}
+
+	& + .option {
+		@apply mt-2.5;
+	}
+}
+.phone {
+	@apply flex items-center justify-center w-7 h-7 rounded-full btn-gray-gradient;
+
+	> svg {
+		@apply w-4 h-4 fill-white;
+		stroke: none;
+	}
+}
+.edit,
+.logout {
+	@apply w-full h-10 px-4 font-medium;
+	border-radius: 5px;
+	background-color: #f4f4f4;
+}
+.edit {
+	@apply mb-3.5;
+}
+.logout {
+	@apply flex items-center justify-center gap-2.5;
+	color: #f30000;
+
+	> svg {
+		@apply w-5 h-5;
+	}
+}
+.form {
+	@apply py-8 px-10;
+	max-width: 800px;
+
+	@media (max-width: 520px) {
+		@apply py-5 px-5;
+	}
+}

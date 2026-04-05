@@ -1,0 +1,26 @@
+.field {
+	@apply flex gap-3 cursor-pointer;
+}
+.checkbox {
+	@apply relative appearance-none p-0 border border-black cursor-pointer bg-transparent transition-colors;
+	width: 18px;
+	height: 18px;
+	border-radius: 2px;
+	border-color: #c3c3c3;
+
+	&:checked::after {
+		@apply absolute top-0.5 left-1.5 border-solid border-black rotate-45;
+		content: '';
+		width: 5px;
+		height: 10px;
+		border-width: 0 2px 2px 0;
+	}
+
+	&:hover,
+	&:checked {
+		@apply border-black;
+	}
+}
+.label {
+	font-size: 13px;
+}

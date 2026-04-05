@@ -1,0 +1,27 @@
+.list {
+	@apply flex justify-center gap-1.5;
+}
+.button {
+	@apply w-10 h-10 flex items-center justify-center text-md transition-colors;
+	border-radius: 5px;
+	background-color: #f4f5f5;
+
+	> svg {
+		@apply w-5 h-5 transition-colors;
+	}
+
+	&.picked,
+	&:hover {
+		@apply text-white;
+		background-color: #ffa202;
+	}
+
+	@media (max-width: 520px) {
+		@apply w-9 h-9;
+		font-size: 13px;
+
+		> svg {
+			@apply w-4 h-4;
+		}
+	}
+}

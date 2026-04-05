@@ -1,0 +1,98 @@
+.select {
+	@apply relative w-full p-1.5 text-5sm;
+	background-color: #f4f5f5;
+	color: #171717;
+}
+.select,
+.bar,
+.toggle {
+	@apply h-full;
+}
+.bar,
+.toggle {
+	@apply flex w-full;
+	border-radius: inherit;
+}
+.bar {
+	@media (max-width: 960px) {
+		@apply flex-col;
+
+		> * {
+			@apply h-12;
+		}
+	}
+}
+.pick {
+	@apply w-full h-full flex gap-2;
+
+	@media (max-width: 960px) {
+		> * {
+			@apply h-full;
+		}
+	}
+}
+.toggle,
+.box {
+	@apply flex items-center gap-3.5;
+}
+.toggle {
+	@apply px-2.5 bg-white justify-between;
+	min-width: 220px;
+
+	> svg {
+		@apply w-5 h-5 transition-transform;
+		stroke-width: 1.5px;
+	}
+
+	&.active > svg {
+		@apply rotate-90;
+	}
+}
+.box > svg {
+	@apply w-6 h-6;
+	stroke: #ffa202;
+}
+.field {
+	@apply w-full h-full px-4 bg-transparent;
+}
+.content {
+	@apply animate-fade w-full h-fit p-5 absolute left-0 right-0 z-1 flex items-center justify-center overflow-hidden;
+	top: calc(100% + 2px);
+	background-color: inherit;
+	border-radius: inherit;
+}
+.options {
+	@apply w-full grid gap-3 scrollbar-y;
+	grid-template-columns: repeat(2, auto);
+	max-height: 375px;
+	border-radius: inherit;
+}
+.option {
+	@apply w-full;
+	border-radius: inherit;
+}
+.value {
+	@apply w-full px-6 flex items-center justify-center font-semibold text-white overflow-hidden;
+	border-radius: 5px;
+	background-color: #ffa202;
+
+	> span {
+		@apply text-ellipsis;
+	}
+}
+.button {
+	@apply w-full h-9 bg-white flex items-center justify-center gap-3 transition-colors;
+	border-radius: inherit;
+
+	&:hover {
+		@apply text-white;
+		background-color: #ffa202;
+	}
+}
+.reset {
+	@apply px-3;
+
+	> svg {
+		@apply min-w-5 max-w-5 min-h-5 max-h-5;
+	}
+}

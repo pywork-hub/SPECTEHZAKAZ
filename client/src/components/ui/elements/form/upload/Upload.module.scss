@@ -1,0 +1,70 @@
+.item {
+  @apply w-full h-full relative;
+
+  > img {
+    @apply animate-fade image-like-bg-cover;
+  }
+}
+
+.delete {
+  @apply w-10 h-10 flex items-center justify-center absolute top-2.5 left-2.5;
+  border-radius: 5px;
+  background-color: #f30000;
+
+  > svg {
+    @apply w-5 h-5 stroke-white;
+  }
+}
+
+.drag {
+  @apply p-5 flex items-center justify-center text-center border cursor-pointer transition-colors;
+  border-radius: 5px;
+  height: 250px;
+
+  > svg {
+    @apply w-6 h-6;
+  }
+
+  &:hover,
+  &.dragged {
+    border-color: #ffa202;
+  }
+}
+
+.prev,
+.next {
+  @apply bg-white animate-fade w-10 h-10 flex items-center justify-center absolute top-0 bottom-0 z-1 my-auto rounded-full;
+
+  > svg {
+    @apply w-5 h-5;
+  }
+}
+
+.prev {
+  @apply left-2.5;
+}
+
+.next {
+  @apply right-2.5;
+}
+
+@media (max-width: 800px) {
+  .next,
+  .prev {
+
+  }
+  .next {
+    @apply right-1/2 top-auto bottom-2.5 my-0;
+    transform: translateX(50%);
+    > svg {
+      @apply rotate-90;
+    }
+  }
+  .prev {
+    @apply left-1/2 bottom-auto top-2.5 my-0;
+    transform: translateX(-50%);
+    > svg {
+      @apply rotate-90;
+    }
+  }
+}

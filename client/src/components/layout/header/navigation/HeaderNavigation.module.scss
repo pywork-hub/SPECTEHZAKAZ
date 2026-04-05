@@ -1,0 +1,35 @@
+.navigation {
+	@apply flex-grow;
+	@media (max-width: 980px) {
+		display: none;
+	}
+}
+.list {
+	@apply flex items-center gap-5 justify-evenly;
+
+	@media (max-width: 980px) {
+		& {
+			@apply pt-4;
+		}
+	}
+}
+.link {
+	@apply text-2md font-medium transition-colors;
+
+	&.active {
+		@apply cursor-default rounded-full text-white;
+		background-color: #ffa202;
+		padding: 6px 18px;
+	}
+
+	&:not(.active):hover {
+		color: #ffa202;
+	}
+
+	@media (max-width: 980px) {
+		&.active {
+			@apply p-0 bg-transparent;
+			color: #ffa202;
+		}
+	}
+}

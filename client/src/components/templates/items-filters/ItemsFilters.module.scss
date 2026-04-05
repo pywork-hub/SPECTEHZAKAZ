@@ -1,0 +1,90 @@
+.filters {
+	@apply mb-10;
+}
+.top,
+.bottom {
+	@apply flex-wrap;
+}
+.top,
+.bottom,
+.sort,
+.range {
+	@apply flex gap-2.5;
+}
+.top {
+	@apply mb-2.5;
+
+	> .select.empty {
+		@media (max-width: 960px) {
+			@apply h-24;
+		}
+	}
+}
+.bottom {
+	@apply flex justify-between;
+}
+.badge,
+.select,
+.save {
+	@apply h-12 flex-grow;
+	width: calc(50% - 20px);
+	border-radius: 5px;
+	@media (max-width: 520px) {
+		@apply w-full;
+	}
+}
+
+.range {
+	@apply h-12;
+	width: calc(50% - 5px);
+	@media (max-width: 520px) {
+		@apply w-full;
+	}
+	@media (max-width: 420px) {
+		@apply h-24 flex-wrap;
+	}
+}
+.sort {
+	@apply w-full text-5sm;
+	@media (max-width: 960px) {
+		@apply flex-wrap;
+	}
+}
+.label,
+.badge {
+	> svg {
+		@apply w-6 h-6;
+		stroke: #ffa202;
+	}
+}
+.badge {
+	@apply whitespace-nowrap w-fit flex items-center justify-center gap-3 px-6;
+	background-color: #f4f5f6;
+}
+.sort .select {
+	background-color: #fff;
+}
+.save {
+	@apply w-full px-5 flex items-center justify-center gap-3 text-2md font-semibold btn-gray-gradient;
+	max-width: 330px;
+	@media (max-width: 520px) {
+		max-width: none;
+	}
+	> svg {
+		@apply w-7 h-7 fill-white stroke-none;
+	}
+}
+.label {
+	@apply text-5sm px-3 flex items-center gap-2.5 bg-white;
+	min-width: 180px;
+	border-radius: 5px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+	@media (max-width: 420px) {
+		@apply w-full;
+	}
+}
+.price {
+	@apply border-transparent;
+	min-width: 90px;
+	background-color: #f4f5f6;
+}

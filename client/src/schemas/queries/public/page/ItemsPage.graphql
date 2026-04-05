@@ -1,0 +1,16 @@
+query ItemsPage {
+	itemsPage {
+		categories {
+			label
+			value
+		}
+		regions {
+			label
+			value
+		}
+		seo {
+			heading
+			description
+		}
+	}
+}

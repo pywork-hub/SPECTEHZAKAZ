@@ -1,0 +1,429 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Attribute {
+  name: String!
+}
+
+type Category {
+  id: Int!
+  imagePath: String!
+  name: String!
+  slug: String!
+}
+
+type CategoryAttribute {
+  name: String!
+  properties: [SelectOption!]!
+}
+
+type CurrentItem {
+  address: String!
+  averageRating: String!
+  description: String!
+  hourPrice: Int!
+  id: Int!
+  imagePaths: [String!]!
+  minHours: Int!
+  name: String!
+  properties: [Property!]!
+  reviewsCount: Int!
+  shiftPrice: Int!
+  user: ItemUser!
+}
+
+type CurrentUser {
+  avatarPath: String!
+  email: String!
+  id: Int!
+  name: String!
+  role: Role!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Faq {
+  answer: String!
+  question: String!
+}
+
+type HomePage {
+  categories: [Category!]!
+  faqs: [Faq!]!
+  itemRegions: [SelectOption!]!
+  requestRegions: [SelectOption!]!
+  seo: Seo
+}
+
+type Item {
+  address: String!
+  averageRating: String!
+  createdAt: DateTime!
+  hourPrice: Int!
+  id: Int!
+  imagePaths: [String!]!
+  imagesCount: Int!
+  minHours: Int!
+  name: String!
+  properties: [Property!]!
+  reviewsCount: Int!
+  shiftPrice: Int!
+  user: ItemUser!
+}
+
+type ItemCategory {
+  attributes: [CategoryAttribute!]!
+  label: String!
+  value: String!
+}
+
+type ItemEdit {
+  address: String!
+  category: SelectOption!
+  description: String!
+  hourPrice: String!
+  imagePaths: [String!]!
+  minHours: String!
+  name: String!
+  properties: [SelectOption!]!
+  shiftPrice: String!
+}
+
+type ItemForEdit {
+  categories: [ItemCategory!]!
+  item: ItemEdit
+  regions: [SelectOption!]!
+}
+
+input ItemUpsertInput {
+  address: String!
+  category: SelectOptionInput!
+  description: String!
+  hourPrice: String!
+  imagePaths: [String!]!
+  minHours: String!
+  name: String!
+  properties: [SelectOptionInput!]!
+  shiftPrice: String!
+}
+
+type ItemUser {
+  avatarPath: String!
+  createdAt: String!
+  itemsCount: Int!
+  name: String!
+  phone: String!
+}
+
+type Items {
+  items: [Item!]!
+  pages: Int!
+}
+
+input ItemsFiltersInput {
+  categories: [String!]
+  createdAtSort: Sort
+  maxHourPrice: String
+  maxShiftPrice: String
+  minHourPrice: String
+  minShiftPrice: String
+  pagination: PaginationInput!
+  priceSort: Sort
+  ratingSort: Sort
+  regions: [String!]
+}
+
+type ItemsPage {
+  categories: [SelectOption!]!
+  regions: [SelectOption!]!
+  seo: Seo
+}
+
+input LeaveReviewInput {
+  description: String!
+  itemId: Int!
+  rating: Int!
+}
+
+input LoginInput {
+  email: String
+  isRemember: Boolean!
+  password: String!
+  phone: String
+}
+
+type Metadata {
+  description: String
+  title: String!
+}
+
+type Mutation {
+  deleteItem(id: Int!): Boolean!
+  deleteRequest(id: Int!): Boolean!
+  leaveReview(data: LeaveReviewInput!): Boolean!
+  login(data: LoginInput!): CurrentUser!
+  logout: Boolean!
+  promoteItem(id: Int!): Boolean!
+  promoteRequest(id: Int!): Boolean!
+  register(data: RegisterInput!): CurrentUser!
+  sendVerification(phone: String!, token: String!): Boolean!
+  updatePassword(data: UpdatePasswordInput!): Boolean!
+  updateProfile(data: ProfileUpdateInput!): Boolean!
+  upsertItem(data: ItemUpsertInput!, id: Int): String
+  upsertRequest(data: RequestUpsertInput!, id: Int): Boolean!
+}
+
+enum Page {
+  HOME
+  ITEMS
+  REQUESTS
+}
+
+input PaginationInput {
+  page: Int!
+  take: Int!
+}
+
+enum PaymentMethod {
+  CASH
+  CASHLESS_WITHOUT_VAT
+  CASHLESS_WITH_VAT
+}
+
+enum PricingType {
+  FOR_SHIFT
+  FOR_TRIP
+  PER_HOUR
+  PER_M3
+  PER_TON
+}
+
+type Profile {
+  avatarPath: String!
+  createdAt: String!
+  email: String!
+  id: Int!
+  itemsCount: Int!
+  name: String!
+  phone: String!
+  requestsCount: Int!
+}
+
+type ProfileEdit {
+  avatarPath: [String!]!
+  email: String!
+  name: String!
+  phone: String!
+}
+
+type ProfileItem {
+  address: String!
+  createdAt: DateTime!
+  hourPrice: Int!
+  id: Int!
+  imagePaths: [String!]!
+  imagesCount: Int!
+  minHours: Int!
+  name: String!
+  promotionExpiredAt: String
+  properties: [Property!]!
+  shiftPrice: Int!
+  status: Status!
+}
+
+type ProfileItems {
+  items: [ProfileItem!]!
+  pages: Int!
+}
+
+type ProfileRequest {
+  category: RequestCategory!
+  createdAt: DateTime!
+  description: String!
+  id: Int!
+  paymentMethod: PaymentMethod!
+  price: Int
+  pricingType: PricingType!
+  promotionExpiredAt: String
+  quantity: Int!
+  region: String!
+  startAt: String!
+  status: Status!
+}
+
+type ProfileRequests {
+  pages: Int!
+  requests: [ProfileRequest!]!
+}
+
+input ProfileUpdateInput {
+  avatarPath: [String!]!
+  email: String!
+  name: String!
+  newPassword: String
+  oldPassword: String
+  phone: String!
+}
+
+type Property {
+  attribute: Attribute!
+  value: String!
+}
+
+type Query {
+  currentItem(id: Int!): CurrentItem!
+  currentUser: CurrentUser!
+  homePage: HomePage!
+  itemForEdit(id: Int): ItemForEdit!
+  items(filters: ItemsFiltersInput!): Items!
+  itemsPage: ItemsPage!
+  metadata(page: Page!): Metadata
+  profile: Profile!
+  profileForEdit: ProfileEdit!
+  profileItems(pagination: PaginationInput!): ProfileItems!
+  profileRequests(pagination: PaginationInput!): ProfileRequests!
+  requestForEdit(id: Int): RequestForEdit!
+  requests(filters: RequestsFiltersInput!): Requests!
+  requestsPage: RequestsPage!
+  reviews(filters: ReviewsFiltersInput!): Reviews!
+  seo(page: Page!): Seo
+}
+
+input RegisterInput {
+  email: String!
+  isRemember: Boolean!
+  name: String!
+  password: String!
+  phone: String!
+}
+
+type Request {
+  category: RequestCategory!
+  createdAt: DateTime!
+  description: String!
+  id: Int!
+  paymentMethod: PaymentMethod!
+  phone: String!
+  price: Int
+  pricingType: PricingType!
+  quantity: Int!
+  region: String!
+  startAt: String!
+  user: UserContacts!
+}
+
+type RequestCategory {
+  iconPath: String!
+  name: String!
+}
+
+type RequestEdit {
+  category: SelectOption!
+  description: String!
+  paymentMethod: SelectOption!
+  phone: String!
+  price: String
+  pricingType: SelectOption!
+  quantity: String!
+  region: SelectOption!
+  startAt: String!
+}
+
+type RequestForEdit {
+  categories: [SelectOption!]!
+  regions: [SelectOption!]!
+  request: RequestEdit
+}
+
+input RequestUpsertInput {
+  category: SelectOptionInput!
+  description: String!
+  paymentMethod: SelectOptionInput!
+  phone: String!
+  price: String
+  pricingType: SelectOptionInput!
+  quantity: String!
+  region: SelectOptionInput!
+  startAt: String!
+}
+
+type Requests {
+  pages: Int!
+  requests: [Request!]!
+}
+
+input RequestsFiltersInput {
+  categories: [String!]
+  pagination: PaginationInput!
+  paymentMethod: PaymentMethod
+  regions: [String!]
+}
+
+type RequestsPage {
+  categories: [SelectOption!]!
+  regions: [SelectOption!]!
+  seo: Seo
+}
+
+type Review {
+  createdAt: String!
+  description: String!
+  filePath: String
+  name: String!
+  rating: Int!
+}
+
+type Reviews {
+  pages: Int!
+  reviews: [Review!]!
+}
+
+input ReviewsFiltersInput {
+  itemId: Int!
+  pagination: PaginationInput!
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+type SelectOption {
+  label: String!
+  value: String!
+}
+
+input SelectOptionInput {
+  label: String!
+  value: String!
+}
+
+type Seo {
+  description: String!
+  heading: String!
+}
+
+enum Sort {
+  ASC
+  DESC
+}
+
+enum Status {
+  CANCELED
+  PUBLISHED
+  UNDER_REVIEW
+}
+
+input UpdatePasswordInput {
+  confirmPassword: String!
+  password: String!
+  phone: String!
+}
+
+type UserContacts {
+  phone: String!
+}

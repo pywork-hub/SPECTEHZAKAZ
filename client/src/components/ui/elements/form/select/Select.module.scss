@@ -1,0 +1,90 @@
+.select {
+	@apply relative w-full;
+	color: #171717;
+
+	&.active {
+		.content {
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+			clip-path: inset(0px -10px -10px -10px);
+		}
+
+		.toggle {
+			@apply relative rounded-b-none;
+
+			> svg {
+				@apply rotate-90;
+			}
+
+			&::before {
+				@apply animate-fade w-full absolute bottom-0 left-0 right-0 mx-auto;
+				content: '';
+				height: 1px;
+				max-width: calc(100% - 30px);
+				background-color: #ffa202;
+			}
+		}
+	}
+}
+.pick {
+	@apply w-full h-full flex justify-between gap-2 px-2.5 bg-white;
+	min-width: 220px;
+	border-radius: inherit;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+.value {
+	@apply w-full py-1.5 px-6 flex items-center justify-center font-semibold text-white overflow-hidden;
+	border-radius: 5px;
+	background-color: #ffa202;
+
+	> span {
+		@apply text-ellipsis;
+	}
+}
+.reset {
+	@apply px-3;
+
+	> svg {
+		@apply min-w-5 max-w-5 min-h-5 max-h-5;
+	}
+}
+.select,
+.toggle {
+	@apply h-12;
+}
+.toggle,
+.box {
+	@apply flex items-center gap-3.5;
+}
+.toggle {
+	@apply w-full justify-between px-2.5 bg-white;
+	min-width: 220px;
+	border-radius: inherit;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+
+	> svg {
+		@apply w-5 h-5 transition-transform;
+		stroke-width: 1.5px;
+	}
+}
+.box > svg {
+	@apply min-w-6 max-w-6 min-h-6 max-h-6;
+	stroke: #ffa202;
+}
+.content {
+	@apply absolute z-1 animate-fade w-full pt-3.5 pb-4 px-4;
+	background-color: inherit;
+	border-bottom-left-radius: inherit;
+	border-bottom-right-radius: inherit;
+}
+.options {
+	@apply w-full flex flex-col gap-3 scrollbar-y;
+	max-height: 375px;
+	border-bottom-left-radius: inherit;
+	border-bottom-right-radius: inherit;
+}
+.option {
+	@apply w-full;
+}
+.button {
+	@apply w-full bg-white flex items-center gap-3 transition-colors;
+}

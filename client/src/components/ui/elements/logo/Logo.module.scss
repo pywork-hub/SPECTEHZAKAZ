@@ -1,0 +1,15 @@
+.logo {
+	@apply uppercase font-alumni;
+
+	> span {
+		@apply inline-block;
+
+		&:first-child {
+			color: #171717;
+		}
+
+		&:last-child {
+			color: #ffa202;
+		}
+	}
+}

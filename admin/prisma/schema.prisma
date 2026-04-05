@@ -1,0 +1,249 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ENUMS
+enum Role {
+  ADMIN
+  USER
+
+  @@map("role")
+}
+
+enum Page {
+  HOME
+  REQUESTS
+  ITEMS
+
+  @@map("page")
+}
+
+enum PaymentMethod {
+  CASH
+  CASHLESS_WITHOUT_VAT
+  CASHLESS_WITH_VAT
+
+  @@map("payment_method")
+}
+
+enum PricingType {
+  PER_HOUR
+  PER_TON
+  PER_M3
+  FOR_SHIFT
+  FOR_TRIP
+
+  @@map("pricing_type")
+}
+
+enum Status {
+  UNDER_REVIEW
+  PUBLISHED
+  CANCELED
+
+  @@map("status")
+}
+
+// MODELS
+model Settings {
+  id Int @id @default(0)
+
+  itemPromotePrice    Int @map("item_promote_price")
+  requestPromotePrice Int @map("request_promote_price")
+
+  @@map("settings")
+}
+
+model Metadata {
+  id Int @id @default(autoincrement())
+
+  title       String
+  description String?
+
+  page Page @unique
+
+  @@map("metadata")
+}
+
+model Seo {
+  id Int @id @default(autoincrement())
+
+  heading     String
+  description String
+
+  page Page @unique
+
+  @@map("seo")
+}
+
+model Faq {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  question String
+  answer String
+
+  order Int
+
+  @@map("faq")
+}
+
+model Region {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  name String @unique
+  slug String @unique
+
+  items    Item[]
+  requests Request[]
+
+  @@map("region")
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  name String @unique
+  slug String @unique
+
+  imagePath String @map("image_path")
+  iconPath  String @map("icon_path")
+
+  requests   Request[]
+  items      Item[]
+  attributes Attribute[] @relation(name: "category_attribute_relation")
+
+  @@map("category")
+}
+
+model Attribute {
+  id Int @id @default(autoincrement())
+
+  name       String
+  properties Property[]
+  categories Category[] @relation(name: "category_attribute_relation")
+
+  @@map("attribute")
+}
+
+model Property {
+  id Int @id @default(autoincrement())
+
+  value String
+
+  items Item[] @relation(name: "item_property_relation")
+
+  attribute   Attribute? @relation(fields: [attributeId], references: [id], onDelete: Cascade)
+  attributeId Int?       @map("attribute_id")
+
+  @@map("property")
+}
+
+model Item {
+  id                 Int       @id @default(autoincrement())
+  createdAt          DateTime  @default(now()) @map("created_at")
+  promotionExpiredAt DateTime? @map("promotion_expired_at")
+
+  name    String
+  slug    String
+  address String
+
+  region      Region? @relation(fields: [regionId], references: [id], onDelete: Cascade)
+  description String
+
+  imagePaths String[] @map("image_paths")
+
+  hourPrice  Int @map("hour_price")
+  shiftPrice Int @map("shift_price")
+  minHours   Int @map("min_hours")
+
+  averageRating Decimal @default(5.00) @map("average_rating") @db.Decimal(10, 2)
+
+  properties Property[] @relation(name: "item_property_relation")
+  reviews    Review[]
+
+  category Category? @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  user     User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  status Status @default(UNDER_REVIEW)
+
+  categoryId Int @map("category_id")
+  userId     Int @default(1) @map("user_id")
+  regionId   Int @map("region_id")
+
+  @@map("item")
+}
+
+model Request {
+  id                 Int       @id @default(autoincrement())
+  createdAt          DateTime  @default(now()) @map("created_at")
+  promotionExpiredAt DateTime? @map("promotion_expired_at")
+
+  description String
+
+  price         Int
+  pricingType   PricingType   @map("pricing_type")
+  paymentMethod PaymentMethod @map("payment_method")
+  quantity      Int
+
+  startAt DateTime @map("start_at")
+
+  status Status @default(UNDER_REVIEW)
+
+  region   Region @relation(fields: [regionId], references: [id], onDelete: Cascade)
+  regionId Int    @map("region_id")
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int      @map("category_id")
+
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int  @map("user_id")
+
+  @@map("request")
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  description String
+  filePath    String? @map("file_path")
+  rating      Int
+
+  status Status @default(UNDER_REVIEW)
+
+  item   Item @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId Int  @map("item_id")
+
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int  @map("user_id")
+
+  @@map("review")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+
+  name       String
+  email      String @unique
+  password   String
+  avatarPath String @default("/storage/images/base/avatar.webp") @map("avatar_path")
+
+  phone String
+
+  requests Request[]
+  items    Item[]
+  reviews  Review[]
+
+  role Role @default(USER)
+
+  @@map("user")
+}

@@ -1,0 +1,54 @@
+.form {
+	@apply pt-5 flex flex-col gap-5;
+
+	@media (max-width: 520px) {
+		font-size: 14px;
+	}
+}
+.row,
+.group {
+	@apply flex gap-6;
+}
+.row {
+	@apply flex-wrap;
+	@media (max-width: 450px) {
+		@apply gap-2;
+	}
+}
+.quote {
+	@apply mt-1 mb-3;
+
+	> span {
+		font-size: 14px;
+	}
+}
+.input,
+.textarea {
+	@apply px-4 border;
+	border-color: #c3c3c3;
+	border-radius: 5px;
+}
+.input {
+	@apply h-12;
+}
+.textarea {
+	@apply resize-y py-2.5;
+	min-height: 150px;
+	@media (max-width: 450px) {
+		min-height: 80px;
+	}
+}
+.submit {
+	@apply h-11 mt-5 flex items-center justify-center font-medium mx-auto btn-orange;
+	min-width: 200px;
+	border-radius: 5px;
+
+	@media (max-width: 450px) {
+		@apply mt-0;
+	}
+}
+.loader {
+	@apply w-5 h-5 border-2;
+	border-color: #282832;
+	border-left-color: #fff;
+}

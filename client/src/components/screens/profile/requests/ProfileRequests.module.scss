@@ -1,0 +1,31 @@
+.list {
+	@apply flex flex-col gap-5;
+}
+.form {
+	@apply py-8 px-10;
+	max-width: 1800px;
+
+	@media (max-width: 520px) {
+		@apply py-5 px-5;
+	}
+}
+.add {
+	@apply w-full h-16 flex items-center justify-center gap-1.5 text-2md font-semibold mt-6 mx-auto;
+	border-radius: 5px;
+	background-color: #f4f5f6;
+	color: #252525;
+
+	> svg {
+		@apply w-6 h-6;
+		stroke: #ffa202;
+	}
+
+	@media (max-width: 520px) {
+		@apply h-14;
+		font-size: 14px;
+
+		> svg {
+			@apply w-5 h-5;
+		}
+	}
+}

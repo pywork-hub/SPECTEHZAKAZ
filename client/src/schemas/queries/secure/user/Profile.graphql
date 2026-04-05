@@ -1,0 +1,12 @@
+query Profile {
+	profile {
+		id
+		name
+		email
+		avatarPath
+		createdAt
+		phone
+		itemsCount
+		requestsCount
+	}
+}

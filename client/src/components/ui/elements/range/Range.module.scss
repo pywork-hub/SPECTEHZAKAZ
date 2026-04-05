@@ -1,0 +1,20 @@
+.boxes {
+	@apply flex gap-2.5;
+}
+.box {
+	@apply flex items-center gap-2;
+}
+.label {
+	@apply font-medium;
+}
+.field {
+	@apply h-full px-2.5 border text-md transition-colors;
+	border-radius: 5px;
+
+	&:focus-within {
+		border-color: #fba512;
+	}
+}
+.input {
+	@apply h-full bg-transparent;
+}

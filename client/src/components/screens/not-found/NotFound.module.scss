@@ -1,0 +1,46 @@
+.section {
+	@apply pt-16 flex items-center justify-center;
+}
+.wrapper {
+	@apply h-full flex flex-col items-center justify-center text-center;
+}
+.heading,
+.button {
+	@apply uppercase font-montserrat;
+}
+.heading {
+	@apply font-black mb-7;
+	font-size: 25px;
+	line-height: 1.5;
+}
+.description {
+	@apply mb-8;
+	line-height: 1.9;
+}
+.button {
+	@apply font-bold py-4 px-6 text-white;
+	font-size: 14px;
+	letter-spacing: 0.5px;
+	border-radius: 5px;
+	background-color: #ffa202;
+
+	&:hover {
+		background-color: #ff8f00;
+	}
+}
+
+@media (max-width: 1000px) {
+	.heading {
+		@apply mb-6;
+	}
+}
+
+@media (max-width: 400px) {
+	.heading {
+		@apply mb-4;
+		font-size: 23px;
+	}
+	.description {
+		font-size: 15px;
+	}
+}

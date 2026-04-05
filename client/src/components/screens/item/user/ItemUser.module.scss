@@ -1,0 +1,85 @@
+.user {
+	@apply p-5 mb-5;
+	//min-width: 450px;
+	border-radius: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+
+	@media (max-width: 1300px) {
+		order: 1;
+	}
+}
+.about {
+	@apply flex gap-2.5;
+	@media (max-width: 1050px) {
+		@apply flex-col items-start;
+	}
+	@media (max-width: 950px) {
+		@apply flex-row items-center;
+	}
+	@media (max-width: 400px) {
+		@apply flex-col items-start;
+	}
+}
+.avatar {
+	min-width: 150px;
+	max-width: 150px;
+
+	> img {
+		@apply image-like-bg-cover;
+		border-radius: 10px;
+	}
+}
+.info {
+	@apply w-full;
+}
+.nickname {
+	@apply font-semibold mb-1;
+	color: #282828;
+}
+.reviews {
+	@apply items-center mb-1;
+
+	> svg {
+		@apply stroke-none;
+	}
+}
+.box {
+	@apply items-center;
+
+	> span {
+		@apply text-4sm font-medium;
+	}
+
+	> span:last-child {
+		@apply relative pl-2;
+		color: #8d8d8d;
+
+		&::before {
+			@apply absolute top-0 bottom-0 left-0 my-auto rounded-full;
+			content: '';
+			width: 3px;
+			height: 3px;
+			background-color: #d9d9d9;
+		}
+	}
+}
+.reviews,
+.term {
+	> svg {
+		width: 22px;
+		height: 22px;
+		fill: #ffa202;
+	}
+}
+.term {
+	@apply text-md mb-2;
+
+	> svg {
+		@apply stroke-white;
+	}
+}
+.reviews,
+.box,
+.term {
+	@apply flex gap-2.5;
+}

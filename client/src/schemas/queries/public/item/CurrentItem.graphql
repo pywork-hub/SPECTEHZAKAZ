@@ -1,0 +1,27 @@
+query CurrentItem($id: Int!) {
+	currentItem(id: $id) {
+		id
+		name
+		address
+		description
+		imagePaths
+		hourPrice
+		shiftPrice
+		minHours
+		averageRating
+		reviewsCount
+		properties {
+			attribute {
+				name
+			}
+			value
+		}
+		user {
+			name
+			avatarPath
+			itemsCount
+			phone
+			createdAt
+		}
+	}
+}

@@ -1,0 +1,7 @@
+.steps {
+	@apply flex gap-5;
+
+	@media (max-width: 1000px) {
+		@apply flex-col;
+	}
+}

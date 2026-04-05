@@ -1,0 +1,12 @@
+query Reviews($filters: ReviewsFiltersInput!) {
+	reviews(filters: $filters) {
+		reviews {
+			name
+			description
+			filePath
+			rating
+			createdAt
+		}
+		pages
+	}
+}

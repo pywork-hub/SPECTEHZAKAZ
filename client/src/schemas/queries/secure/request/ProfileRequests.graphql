@@ -1,0 +1,22 @@
+query ProfileRequests($pagination: PaginationInput!) {
+	profileRequests(pagination: $pagination) {
+		requests {
+			id
+			region
+			description
+			quantity
+			startAt
+			price
+			pricingType
+			paymentMethod
+			createdAt
+			status
+			promotionExpiredAt
+			category {
+				name
+				iconPath
+			}
+		}
+		pages
+	}
+}

@@ -1,0 +1,115 @@
+.policy {
+	@apply pt-20;
+}
+.heading {
+	@apply uppercase text-center font-montserrat font-black mb-8;
+	font-size: 25px;
+	line-height: 1.5;
+}
+.content {
+	@apply flex flex-col items-start gap-3;
+	line-height: 1.9;
+	font-size: 15px;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-montserrat font-bold;
+	}
+
+	h3 {
+		@apply mt-6;
+		font-size: 22px;
+		line-height: 1.6;
+	}
+
+	h4 {
+		font-size: 17px;
+	}
+
+	table {
+		@apply mt-2.5 table-fixed w-full border-collapse border;
+		border-color: #c6c6c6;
+
+		td {
+			@apply p-5 align-middle border;
+			border-color: #c6c6c6;
+		}
+	}
+
+	a {
+		@apply font-semibold underline underline-offset-4;
+	}
+
+	ol {
+		@apply pl-8;
+
+		> li {
+			@apply list-decimal list-inside;
+		}
+	}
+
+	ul {
+		@apply pl-7;
+
+		> li {
+			@apply list-disc;
+		}
+	}
+}
+
+@media (max-width: 1400px) {
+	.policy {
+		@apply pt-16;
+	}
+}
+
+@media (max-width: 1000px) {
+	.heading {
+		@apply mb-6;
+	}
+	.policy {
+		@apply pt-12;
+	}
+}
+
+@media (max-width: 400px) {
+	.policy {
+		@apply pt-10;
+	}
+	.heading {
+		@apply mb-4;
+		font-size: 23px;
+	}
+	.content {
+		@apply gap-3;
+		font-size: 14px;
+
+		h3 {
+			font-size: 20px;
+		}
+
+		h4 {
+			font-size: 16px;
+		}
+
+		table {
+			@apply mt-2;
+
+			td {
+				@apply p-4;
+			}
+		}
+
+		ol {
+			@apply pl-4;
+		}
+
+		ul {
+			@apply pl-3.5;
+		}
+	}
+}

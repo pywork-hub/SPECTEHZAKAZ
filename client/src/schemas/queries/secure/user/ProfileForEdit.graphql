@@ -1,0 +1,8 @@
+query ProfileForEdit {
+	profileForEdit {
+		name
+		email
+		phone
+		avatarPath
+	}
+}

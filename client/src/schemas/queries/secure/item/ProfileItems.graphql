@@ -1,0 +1,24 @@
+query ProfileItems($pagination: PaginationInput!) {
+	profileItems(pagination: $pagination) {
+		items {
+			id
+			name
+			address
+			imagePaths
+			imagesCount
+			hourPrice
+			shiftPrice
+			minHours
+			status
+			promotionExpiredAt
+			properties {
+				value
+				attribute {
+					name
+				}
+			}
+			createdAt
+		}
+		pages
+	}
+}

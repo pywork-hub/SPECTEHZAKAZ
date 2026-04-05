@@ -1,0 +1,50 @@
+.slider {
+	@apply relative;
+
+	&:hover .dots {
+		@apply opacity-100;
+	}
+}
+.dots,
+.area {
+	@apply w-full h-full absolute top-0 bottom-0 left-0 right-0 z-1;
+	border-radius: inherit;
+}
+.dots {
+	@apply opacity-0 flex transition-opacity;
+}
+.dot {
+	@apply w-full flex items-end pb-3;
+	border-radius: inherit;
+
+	&:first-child {
+		@apply justify-end;
+	}
+
+	&:last-child {
+		@apply justify-start;
+	}
+
+	&:first-child,
+	&:last-child {
+		.line {
+			@apply w-10/12;
+		}
+	}
+
+	&:not(:first-child) .line,
+	&:not(:last-child) .line {
+		@apply mx-1;
+	}
+
+	&:hover .line {
+		background-color: #ffa202;
+	}
+}
+.line {
+	@apply inline-block w-full h-0.5 rounded-full transition-colors;
+	background-color: #d5d5d5;
+}
+.area {
+	@apply animate-fade z-0 flex items-center justify-center bg-black/25 text-white font-semibold;
+}

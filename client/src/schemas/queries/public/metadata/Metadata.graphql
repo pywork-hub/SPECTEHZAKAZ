@@ -1,0 +1,6 @@
+query Metadata($page: Page!) {
+	metadata(page: $page) {
+		title
+		description
+	}
+}

@@ -1,0 +1,16 @@
+.react-select__value-container {
+	padding: 0 !important;
+}
+.react-select__input-container {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.react-select__control {
+	@apply h-full;
+	min-height: auto !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+.react-select__menu {
+	@apply left-0 right-0;
+}

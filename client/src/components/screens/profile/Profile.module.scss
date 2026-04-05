@@ -1,0 +1,41 @@
+.section {
+	@apply py-16;
+
+	@media (max-width: 520px) {
+		@apply pt-8 pb-0;
+	}
+}
+.wrapper {
+	@apply flex items-start gap-5;
+	@media (max-width: 800px) {
+		@apply flex-col;
+	}
+}
+.catalog {
+	@apply w-full;
+}
+.tabs {
+	@apply flex flex-wrap justify-end gap-4 mb-6;
+}
+.tab {
+	@apply h-11 text-2md font-semibold px-10;
+	//min-width: 335px;
+	border-radius: 5px;
+	color: #171717;
+	border: 1px solid #ffa202;
+	@media (max-width: 1200px) {
+		@apply flex-grow;
+	}
+
+	&:hover,
+	&.active {
+		@apply btn-orange;
+	}
+}
+.pagination {
+	@apply mt-10;
+
+	@media (max-width: 520px) {
+		@apply mt-8;
+	}
+}

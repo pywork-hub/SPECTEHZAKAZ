@@ -1,0 +1,45 @@
+.advantage {
+	@apply flex items-center gap-4;
+	border-radius: 10px;
+
+	@media (max-width: 450px) {
+
+	}
+
+	& + .advantage {
+		@apply pt-5;
+
+		.box {
+			@apply relative;
+
+			&::before {
+				@apply w-full absolute -top-4 left-0 right-0;
+				content: '';
+				height: 1px;
+				background-color: #e9eaec;
+			}
+		}
+		@media (max-width: 450px) {
+			@apply pt-3;
+		}
+	}
+}
+.icon {
+	@apply min-w-16 max-w-16 min-h-16 max-h-16 flex items-center justify-center rounded-full;
+	background-color: #f2f7fc;
+	@media (max-width: 450px) {
+		@apply hidden;
+	}
+
+	> svg {
+		@apply w-7 h-7;
+		stroke: #ffa202;
+	}
+}
+.heading {
+	@apply text-2md font-semibold mb-1;
+}
+.description {
+	@apply text-5sm leading-md;
+	color: #3b3b3b;
+}

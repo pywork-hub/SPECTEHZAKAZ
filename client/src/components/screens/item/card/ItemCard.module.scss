@@ -1,0 +1,157 @@
+.card {
+	@apply w-full flex flex-col border border-transparent text-black pt-5 px-6 pb-6;
+	border-radius: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	background-color: #fff;
+}
+.top {
+	@apply flex justify-between gap-4 font-semibold;
+	@media (max-width: 1300px) {
+		@apply flex-wrap;
+	}
+}
+.name {
+	@apply text-ellipsis;
+	@media (max-width: 600px) {
+		@apply whitespace-normal;
+	}
+}
+.address {
+	@apply flex items-center gap-2.5 text-md;
+	color: #ffa202;
+
+	> svg {
+		@apply w-6 h-6;
+		stroke: #ffa202;
+	}
+}
+.center {
+	@apply flex gap-9 pt-5;
+	@media (max-width: 1300px) {
+		@apply flex-wrap justify-center;
+	}
+}
+.slider {
+	@apply w-full;
+	max-width: 460px;
+	@media (max-width: 1300px) {
+		max-width: calc(100vw - 3rem - 50px);
+	}
+	@media (max-width: 750px) {
+		max-width: calc(100vw - 3rem - 24px);
+	}
+}
+.preview {
+	@apply mb-2.5 cursor-grab;
+	height: 270px;
+
+	> div {
+		@apply h-full;
+
+		> div {
+			@apply h-full;
+		}
+	}
+
+	img {
+		@apply absolute top-0 bottom-0 left-0 right-0 image-like-bg-cover;
+		border-radius: 10px;
+	}
+}
+.thumbnails {
+	@apply w-full cursor-grab;
+	height: 100px;
+
+	> div {
+		@apply -mx-1;
+	}
+
+	> div > div > div > div {
+		@apply relative mx-1 border border-transparent overflow-hidden transition-colors;
+		border-radius: 10px;
+
+		&:hover {
+			border-color: #ffa202;
+		}
+	}
+
+	> div,
+	> div > div,
+	> div > div > div,
+	> div > div > div > div {
+		@apply h-full;
+	}
+
+	img {
+		@apply absolute top-0 bottom-0 left-0 right-0 image-like-bg-cover;
+	}
+}
+.content {
+	@apply w-full flex flex-col justify-between;
+}
+.properties {
+	@apply w-full flex flex-col gap-3.5;
+}
+.property {
+	@apply whitespace-nowrap flex items-end justify-between gap-2.5 text-5sm leading-none;
+
+	@media (max-width: 370px) {
+		@apply flex-wrap;
+		> span:nth-child(2) {
+			display: none;
+		}
+	}
+
+	> span:nth-child(2) {
+		@apply w-full border-b border-dotted;
+		border-bottom-color: #787878;
+	}
+}
+.bottom {
+	@apply mt-6;
+}
+.prices {
+	@apply flex gap-2.5 flex-wrap;
+}
+.price {
+	@apply h-10 flex-grow border text-md font-medium flex items-center justify-center;
+	border-radius: 5px;
+	border-color: rgba(48, 58, 71, 0.15);
+
+	&:first-child {
+		color: #565656;
+	}
+
+	&:last-child {
+		@apply text-white;
+		background-color: #343e4a;
+	}
+}
+.contacts {
+	@apply w-full h-12 flex items-center justify-center gap-2.5 mt-2.5 text-2md font-semibold btn-gray-gradient;
+	border-radius: 5px;
+
+	> svg {
+		@apply w-6 h-6 fill-white stroke-none;
+	}
+}
+.heading {
+	@apply text-lg font-semibold mb-3.5;
+
+	@media (max-width: 520px) {
+		@apply mb-2;
+		font-size: 16px;
+	}
+}
+.description {
+	@apply mt-8 pt-5 border-t;
+	border-top-color: #303a4726;
+}
+.text {
+	@apply text-2md leading-lg;
+	word-break: break-word;
+
+	@media (max-width: 520px) {
+		font-size: 14px;
+	}
+}

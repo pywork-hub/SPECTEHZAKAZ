@@ -1,0 +1,3 @@
+mutation UpsertItem($data: ItemUpsertInput!, $id: Int) {
+	upsertItem(data: $data, id: $id)
+}

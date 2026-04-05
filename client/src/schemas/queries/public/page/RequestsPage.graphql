@@ -1,0 +1,16 @@
+query RequestsPage {
+	requestsPage {
+		categories {
+			label
+			value
+		}
+		regions {
+			label
+			value
+		}
+		seo {
+			heading
+			description
+		}
+	}
+}

@@ -1,0 +1,106 @@
+.accordion {
+	@apply w-full border-b;
+	border-color: #e9eaec;
+
+	&:first-child,
+	&:nth-child(2) {
+		@apply border-t;
+	}
+
+	&.opened {
+		@apply pb-7;
+
+		.icon > svg {
+			@apply -rotate-45;
+		}
+	}
+
+	@media (max-width: 1000px) {
+		&.opened {
+			@apply pb-6;
+		}
+	}
+
+	@media (max-width: 900px) {
+		&:nth-child(2) {
+			@apply border-t-0;
+		}
+	}
+
+	@media (max-width: 550px) {
+		&.opened {
+			@apply pb-5;
+		}
+	}
+
+	@media (max-width: 450px) {
+		&.opened {
+			@apply pb-4;
+		}
+	}
+}
+.question {
+	@apply w-full py-5 flex items-center justify-between gap-5 font-semibold cursor-pointer;
+	font-size: 18px;
+	line-height: 1.7;
+
+	&:hover > .icon {
+		@apply bg-black text-white;
+	}
+
+	@media (max-width: 1000px) {
+		@apply py-4;
+		font-size: 16px;
+	}
+
+	@media (max-width: 550px) {
+		@apply py-3.5;
+		font-size: 15px;
+	}
+
+	@media (max-width: 450px) {
+		@apply py-2.5;
+	}
+}
+.icon {
+	@apply min-w-10 max-w-10 min-h-10 max-h-10 flex items-center justify-center bg-transparent rounded-full transition-colors;
+
+	> svg {
+		@apply w-7 h-7 transition-transform;
+	}
+
+	@media (max-width: 1000px) {
+		@apply min-w-9 max-w-9 min-h-9 max-h-9;
+
+		> svg {
+			@apply w-6 h-6;
+		}
+	}
+}
+.answer {
+	font-size: 15px;
+	line-height: 1.9;
+
+	ul,
+	ol {
+		@apply pl-4;
+	}
+
+	ul,
+	ul li {
+		@apply list-disc;
+	}
+
+	ol,
+	ol li {
+		@apply list-decimal;
+	}
+
+	a {
+		@apply font-medium underline underline-offset-4;
+	}
+
+	@media (max-width: 1000px) {
+		font-size: 14px;
+	}
+}

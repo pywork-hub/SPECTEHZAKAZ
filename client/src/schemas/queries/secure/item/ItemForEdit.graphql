@@ -1,0 +1,36 @@
+query ItemForEdit($id: Int) {
+	itemForEdit(id: $id) {
+		item {
+			name
+			address
+			description
+			imagePaths
+			hourPrice
+			shiftPrice
+			minHours
+			properties {
+				label
+				value
+			}
+			category {
+				label
+				value
+			}
+		}
+		regions {
+			label
+			value
+		}
+		categories {
+			label
+			value
+			attributes {
+				name
+				properties {
+					label
+					value
+				}
+			}
+		}
+	}
+}

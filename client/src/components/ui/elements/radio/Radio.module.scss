@@ -1,0 +1,19 @@
+.button {
+	@apply flex items-center;
+
+	&:hover .radio {
+		border-color: #fba512;
+	}
+}
+.radio {
+	@apply w-4 h-4 border flex items-center justify-center rounded-full transition-colors;
+	border-color: rgba(48, 58, 71, 0.15);
+
+	> span {
+		@apply animate-fade w-1.5 h-1.5 rounded-full;
+		background-color: #fba512;
+	}
+}
+.description {
+	color: #565656;
+}

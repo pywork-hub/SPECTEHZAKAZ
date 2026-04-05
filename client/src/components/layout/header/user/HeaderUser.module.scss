@@ -1,0 +1,30 @@
+.buttons {
+	@apply flex gap-5;
+	@media (max-width: 980px) {
+		display: none;
+	}
+}
+.button {
+	@apply px-4 flex items-center justify-center gap-2 text-md font-semibold border-2 transition-colors;
+	height: 43px;
+	border-color: #ffa202;
+	border-radius: 5px;
+
+	> span {
+		@apply text-ellipsis;
+	}
+
+	> svg {
+		@apply min-w-5 max-w-5 min-h-5 max-h-5 transition-colors delay-100;
+		stroke: #ffa202;
+	}
+
+	&:hover {
+		@apply text-white;
+		background-color: #ffa202;
+
+		> svg {
+			@apply stroke-white;
+		}
+	}
+}

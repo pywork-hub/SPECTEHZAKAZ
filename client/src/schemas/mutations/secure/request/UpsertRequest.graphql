@@ -1,0 +1,3 @@
+mutation UpsertRequest($data: RequestUpsertInput!, $id: Int) {
+	upsertRequest(data: $data, id: $id)
+}

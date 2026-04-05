@@ -1,0 +1,24 @@
+query Requests($filters: RequestsFiltersInput!) {
+	requests(filters: $filters) {
+		requests {
+			id
+			region
+			description
+			phone
+			quantity
+			startAt
+			price
+			pricingType
+			paymentMethod
+			createdAt
+			category {
+				name
+				iconPath
+			}
+			user {
+				phone
+			}
+		}
+		pages
+	}
+}

@@ -1,0 +1,42 @@
+.modal {
+	@apply py-6 px-8;
+	max-width: 500px;
+
+	@media (max-width: 520px) {
+		@apply px-6;
+	}
+}
+.buttons {
+	@apply pt-4;
+}
+.phone {
+	@apply h-11 flex items-center justify-center gap-3 text-white btn-gray-gradient transition-colors;
+	border-radius: 5px;
+
+	> svg {
+		@apply w-6 h-6 fill-white stroke-none;
+	}
+}
+.description {
+	@apply mt-3 text-center text-md;
+
+	@media (max-width: 520px) {
+		font-size: 13px;
+	}
+}
+.register {
+	@apply w-full flex items-center justify-center gap-3 py-3 px-5 btn-orange font-medium;
+	border-radius: 5px;
+
+	> svg {
+		@apply w-6 h-6 stroke-white;
+	}
+
+	@media (max-width: 520px) {
+		font-size: 14px;
+
+		> svg {
+			@apply w-5 h-5;
+		}
+	}
+}

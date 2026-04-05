@@ -1,0 +1,35 @@
+query RequestForEdit($id: Int) {
+	requestForEdit(id: $id) {
+		request {
+			region {
+				label
+				value
+			}
+			description
+			phone
+			price
+			pricingType {
+				label
+				value
+			}
+			paymentMethod {
+				label
+				value
+			}
+			category {
+				label
+				value
+			}
+			quantity
+			startAt
+		}
+		regions {
+			label
+			value
+		}
+		categories {
+			label
+			value
+		}
+	}
+}

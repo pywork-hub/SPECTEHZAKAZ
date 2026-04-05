@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+ul,
+li {
+	@apply list-none;
+}
+
+a {
+	@apply inline-block;
+}
+
+textarea,
+textarea:focus,
+input,
+input:focus {
+	outline: none;
+}
+
+body {
+	@apply min-h-screen font-montserrat flex flex-col overflow-x-hidden;
+	font-size: 16px;
+}
+
+main {
+	@apply grid;
+	flex: 1;
+	padding-top: 100px;
+
+	@media (max-width: 980px) {
+		padding-top: 60px;
+	}
+}

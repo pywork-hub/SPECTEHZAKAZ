@@ -1,0 +1,3 @@
+mutation PromoteRequest($id: Int!) {
+	promoteRequest(id: $id)
+}

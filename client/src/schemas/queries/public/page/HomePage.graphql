@@ -1,0 +1,26 @@
+query HomePage {
+	homePage {
+		categories {
+			id
+			name
+			slug
+			imagePath
+		}
+		itemRegions {
+			label
+			value
+		}
+		requestRegions {
+			label
+			value
+		}
+		seo {
+			heading
+			description
+		}
+		faqs {
+			question
+			answer
+		}
+	}
+}

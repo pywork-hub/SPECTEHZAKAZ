@@ -1,0 +1,58 @@
+.fill,
+.box {
+	@apply mt-8;
+}
+.box {
+	@apply py-8 px-10;
+	border-radius: 20px;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+	background-color: #fff;
+	@media (max-width: 450px) {
+		@apply py-6 px-5;
+	}
+}
+.heading {
+	@apply text-lg font-semibold mb-3.5;
+}
+.textarea {
+	@apply text-md py-3.5 px-4 resize-y;
+	min-height: 150px;
+	border-radius: 5px;
+	background-color: #f4f5f6;
+}
+.stars {
+	@apply mt-3.5 mb-5;
+}
+.submit {
+	@apply w-full h-11 flex items-center justify-center font-semibold btn-gray-gradient;
+	max-width: 350px;
+	border-radius: 5px;
+
+	> .loader {
+		@apply w-5 h-5;
+		border-width: 2px;
+		border-color: #aaa9a9;
+		border-left-color: #ffa202;
+	}
+}
+.content {
+	@apply flex flex-col items-center justify-center;
+	min-height: 300px;
+
+	> .loader {
+		@apply w-10 h-10;
+		border-width: 4px;
+		border-color: #282828;
+		border-left-color: #ffa202;
+	}
+}
+.reviews {
+	@apply flex flex-col gap-5;
+}
+.pagination {
+	@apply mt-10;
+
+	@media (max-width: 520px) {
+		@apply mt-8;
+	}
+}

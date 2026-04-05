@@ -1,0 +1,41 @@
+.overlay {
+	@apply animate-fade w-full h-full fixed top-0 bottom-0 left-0 right-0 z-2 flex items-center justify-center p-3 bg-black/80;
+}
+.cookies {
+	@apply w-full p-10 bg-white;
+	max-width: 600px;
+	border-radius: 10px;
+	box-shadow: 0 0 18px rgb(0 0 0 / 0.2);
+}
+.box {
+	@apply flex flex-col gap-6;
+}
+.icon {
+	@apply flex justify-center;
+
+	> svg {
+		@apply w-10 h-10;
+		stroke: #ffa202;
+	}
+}
+.description {
+	@apply text-center leading-lg;
+}
+.buttons {
+	@apply w-full flex gap-2.5 mx-auto;
+	max-width: 320px;
+}
+.button {
+	@apply btn-orange font-medium w-full h-12 px-2.5;
+	border-radius: 5px;
+}
+
+@media (max-width: 400px) {
+	.cookies {
+		@apply px-5;
+	}
+	.description,
+	.button {
+		font-size: 15px;
+	}
+}
